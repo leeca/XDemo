@@ -1,0 +1,15 @@
+plugins {
+  id 'java'
+}
+
+group = 'demo.xdemo.xdemotree.xstream'
+sourceCompatibility = '17'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation "com.thoughtworks.xstream:xstream:${xstreamVersion}"
+  implementation project(':XdemoTree')
+}

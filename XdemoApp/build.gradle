@@ -1,0 +1,21 @@
+plugins {
+  id 'java'
+  id 'application'
+}
+
+group = 'com.pnambic.depanfx'
+sourceCompatibility = '17'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation project(':XdemoTree')
+  implementation project(':XdemoTreeXstream')
+}
+
+application {
+  mainClass = "demo.xdemo.XdemoApp"
+  // mainModule = "xdemo.app"
+}

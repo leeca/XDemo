@@ -1,0 +1,13 @@
+plugins {
+  id 'java'
+}
+
+group = 'demo.xdemo.xdemotree'
+sourceCompatibility = '17'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+}
