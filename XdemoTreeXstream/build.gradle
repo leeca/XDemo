@@ -13,3 +13,9 @@ dependencies {
   implementation "com.thoughtworks.xstream:xstream:${xstreamVersion}"
   implementation project(':XdemoTree')
 }
+
+jar {
+  manifest {
+    attributes 'Automatic-Module-Name': 'xdemo.tree.xstream'
+  }
+}
