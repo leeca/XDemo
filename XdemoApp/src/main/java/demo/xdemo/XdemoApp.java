@@ -14,13 +14,14 @@ public class XdemoApp {
       TreeModel treeModel = TreeModelFactory.loadTreeModel(args[1]);
 
       TreePersist treePersist = new TreePersist();
-      FileWriter writer = new FileWriter(args[0]);
-      treePersist.save(writer, treeModel);
 
+      try (FileWriter writer = new FileWriter(args[0])) {
+        treePersist.save(writer, treeModel);
+      }
       System.exit(0);
     }
 
     System.out.println("Usage: XdemoApp <dst-xml> <model-dir>");
-      System.exit(0);
+    System.exit(1);
   }
 }
