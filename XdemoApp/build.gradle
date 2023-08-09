@@ -3,7 +3,7 @@ plugins {
   id 'application'
 }
 
-group = 'com.pnambic.depanfx'
+group = 'demo.xdemo'
 sourceCompatibility = '17'
 
 repositories {
@@ -17,5 +17,7 @@ dependencies {
 
 application {
   mainClass = "demo.xdemo.XdemoApp"
-  // mainModule = "xdemo.app"
+  mainModule = "xdemo.app"
+
+  // mainClassName = "demo.xdemo.XdemoApp"
 }

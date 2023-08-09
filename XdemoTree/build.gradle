@@ -2,7 +2,7 @@ plugins {
   id 'java'
 }
 
-group = 'demo.xdemo.xdemotree'
+group = 'demo.xdemo'
 sourceCompatibility = '17'
 
 repositories {
