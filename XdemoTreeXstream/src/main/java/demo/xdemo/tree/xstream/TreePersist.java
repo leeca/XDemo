@@ -10,6 +10,8 @@ import demo.xdemo.tree.TreeModel;
 
 public class TreePersist {
 
+  private static final String TREE_MODEL_ALIAS = "tree";
+
   private final XStream xstream;
 
   public TreePersist() {
@@ -26,6 +28,8 @@ public class TreePersist {
 
   private static XStream configXStream() {
     XStream result = new XStream();
+    result.aliasType(TREE_MODEL_ALIAS, TreeModel.class);
+    result.registerConverter(new TreeConverter());
     return result;
   }
 }
