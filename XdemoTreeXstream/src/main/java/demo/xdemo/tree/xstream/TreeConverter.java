@@ -7,6 +7,7 @@ import com.thoughtworks.xstream.io.HierarchicalStreamReader;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 
 import demo.xdemo.tree.TreeModel;
+import demo.xdemo.tree.builder.TreeModelBuilder;
 
 public class TreeConverter implements Converter {
 
@@ -33,8 +34,26 @@ public class TreeConverter implements Converter {
 
   @Override
   public Object unmarshal(HierarchicalStreamReader reader, UnmarshallingContext context) {
-    // Left as an exercise to the interested reader :-)
-    throw new UnsupportedOperationException("Unimplemented method 'unmarshal'");
+    TreeModelBuilder builder = new TreeModelBuilder();
+    while (reader.hasMoreChildren()) {
+      reader.moveDown();
+
+      String childKind = reader.getNodeName();
+      String childName = reader.getValue();
+      switch (childKind) {
+        case CONTAINER_TAG:
+          builder.addContainer(childName);
+          break;
+        case DOCUMENT_TAG:
+          builder.addDocument(childName);
+          break;
+        default:
+          builder.addUnexpected(childName);
+      }
+
+      reader.moveUp();
+    }
+    return builder.build();
   }
 
   private void marshalString(HierarchicalStreamWriter writer, String tag, String value) {
